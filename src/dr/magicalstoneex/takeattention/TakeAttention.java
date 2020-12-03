@@ -38,6 +38,7 @@ public class TakeAttention {
      * @param args
      */
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
 
         readProperties(input);
@@ -75,7 +76,8 @@ public class TakeAttention {
     private static void printProperties(){
         int[] timeFormat = timeFormat(classLength);
         System.out.printf("The students' list is %s.%n", Arrays.toString(students))
-                .printf("The class will continue for %d hours %d minutes and %d seconds.%n", timeFormat[0], timeFormat[1], timeFormat[2])
+                .printf("The class will continue for %d hours %d minutes and %d seconds.%n",
+                        timeFormat[0], timeFormat[1], timeFormat[2])
                 .printf("Blackboard will take attention %d times at ", times);
         for(int time : timeToTake){
             int[] formattedTime = timeFormat(time);
@@ -150,12 +152,10 @@ public class TakeAttention {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
-    private static void takeAttention(Scanner input, int times) throws InterruptedException, IOException {
+    private static void takeAttention(Scanner input, int times) {
         for(int i = 0; i < students.length; i ++){
             int number = (int) (Math.random() * 10000) + 1;
             System.out.printf("Hi %s, you have to input the number %d to show you are here.", students[i], number)
@@ -181,12 +181,12 @@ public class TakeAttention {
     }
 
     private static void report(){
-        System.out.printf("          Name      |");
-        for(int i = 0; i < timeToTake.length; i++){
-            int[] format = timeFormat(timeToTake[i]);
+        System.out.print("          Name      |");
+        for (int k : timeToTake) {
+            int[] format = timeFormat(k);
             System.out.printf(" %02d:%02d:%02d |", format[0], format[1], format[2]);
         }
-        System.out.printf("    total |  percent |");
+        System.out.print("    total |  percent |");
         System.out.println();
         for(int i = 0; i < attentionStatus.length; i ++){
             System.out.printf("%20s|", students[i]);
