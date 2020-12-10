@@ -1,13 +1,7 @@
 package dr.magicalstoneex.takeattention;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Arrays;
-import java.util.Queue;
 import java.util.Scanner;
-import java.util.concurrent.LinkedBlockingQueue;
-
-import static java.lang.System.lineSeparator;
 
 public class TakeAttention {
 
